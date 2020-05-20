@@ -1,0 +1,19 @@
+{
+  "name": "hello-npm-script",
+  "version": "0.1.0",
+  "description": "hello npm script",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint *.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "script"
+  ],
+  "author": "ying.ye <yeying0827@126.com> (https://github.com/yeying0827)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.0.0"
+  }
+}
