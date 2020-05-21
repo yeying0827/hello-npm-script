@@ -148,6 +148,8 @@ npm在执行指定script之前，会把node_modules/.bin加到环境变量$PATH�
 
 peerDependencies----
 
+yarn add <package-name> --peer
+
 IDE自动格式化配置：
 
 https://standardjs.com/readme-zhcn.html

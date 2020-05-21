@@ -4,8 +4,11 @@
   "description": "hello npm script",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint *.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",
+    "lint:json": "jsonlint --quiet *.json",
+    "lint:markdown": "markdownlint --config .markdownlint.json *.md",
+    "test": "npm run lint:js & npm run lint:css & npm run lint:json & npm run lint:markdown & mocha tests/ & wait"
   },
   "keywords": [
     "npm",
@@ -14,6 +17,12 @@
   "author": "ying.ye <yeying0827@126.com> (https://github.com/yeying0827)",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^7.0.0"
+    "chai": "^4.2.0",
+    "eslint": "^7.0.0",
+    "jsonlint": "^1.6.3",
+    "markdownlint-cli": "^0.23.1",
+    "mocha": "^7.1.2",
+    "stylelint": "^13.5.0",
+    "stylelint-config-standard": "^20.0.0"
   }
 }

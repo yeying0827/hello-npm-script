@@ -1,5 +1,6 @@
-const str = 'some value';
-
-function fn() {
-    console.log('some log');
+const add = (a, b) => {
+    if(!isNaN(a) && !isNaN(b)) return a + b;
+    return NaN;
 }
+
+module.exports = { add };
