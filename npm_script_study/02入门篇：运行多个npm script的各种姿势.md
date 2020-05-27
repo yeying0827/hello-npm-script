@@ -49,7 +49,7 @@ npm i stylelint stylelint-config-standard jsonlint markdown-cli mocha chai -D
 
 场景：运行测试之前确保代码都通过代码检查
 
-只需要用**&&**符号把多条npm script按先后顺序串起来即可
+只需要用`&&`符号把多条npm script按先后顺序串起来即可
 
 ```json
 {
@@ -73,7 +73,7 @@ npm i stylelint stylelint-config-standard jsonlint markdown-cli mocha chai -D
 
 场景：代码变更时同时给出代码检查结果和测试运行结果
 
-把连接多条命令的**&&**符号替换成**&**即可
+把连接多条命令的`&&`符号替换成`&`即可
 
 ```json
 {
@@ -85,11 +85,11 @@ npm i stylelint stylelint-config-standard jsonlint markdown-cli mocha chai -D
 
 **>>>注意：**
 
-报错结果可能在进程退出之后才输出。 npm 内置支持的多命令并行跟 js 里面同时发起多个异步请求非常类似，它只负责触发多条命令，而不管结果的收集；如果并行的命令执行时间差异非常大，就会稳定复现 > 报错结果在进程退出之后才输出。
+报错结果可能在进程退出之后才输出。 npm 内置支持的多命令并行跟 js 里面同时发起多个异步请求非常类似，它只负责触发多条命令，而不管结果的收集；如果并行的命令执行时间差异非常大，就会稳定复现 ： 报错结果在进程退出之后才输出。
 
-**>>>改进：**
+**>>>改进：**稳定复现 ： 报错结果在进程退出之后才输出
 
-增加**& wait**
+增加`& wait`
 
 ```json
 {
@@ -103,4 +103,60 @@ npm i stylelint stylelint-config-standard jsonlint markdown-cli mocha chai -D
 }
 ```
 
-如果在任何子命令中启动了长时间运行的进程，比如启用了mocha的**--watch**配置，可以使用**ctrl + c**来结束进程，如果没加的话，就没办法直接结束启动到后台的进程。
+如果在任何子命令中启动了长时间运行的进程，比如启用了mocha的`--watch`配置，可以使用`ctrl + c`来结束进程，如果没加的话，就没办法直接结束启动到后台的进程。
+
+
+
+##### ~更好的管理方式？[npm-run-all](https://github.com/mysticatea/npm-run-all/blob/HEAD/docs/npm-run-all.md)
+
+```shell
+npm i npm-run-all -D
+```
+
+* 修改package.json 实行多命令的串行执行：
+
+```json
+{
+  "scripts": {
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",
+    "lint:json": "jsonlint --quiet *.json",
+    "lint:markdown": "markdownlint --config .markdownlint.json *.md",
+    "mocha": "mocha tests/",
+    "test": "npm-run-all lint:js lint:css lint:json lint:markdown mocha"
+  }
+}
+```
+
+* 支持通配符匹配分组的npm script：
+
+```json
+{
+  "scripts": {
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",
+    "lint:json": "jsonlint --quiet *.json",
+    "lint:markdown": "markdownlint --config .markdownlint.json *.md",
+    "mocha": "mocha tests/",
+    "test": "npm-run-all lint:* mocha"
+  }
+}
+```
+
+* 多个npm script并行：
+
+```json
+{
+  "scripts": {
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",
+    "lint:json": "jsonlint --quiet *.json",
+    "lint:markdown": "markdownlint --config .markdownlint.json *.md",
+    "mocha": "mocha tests/",
+    "test": "npm-run-all --parallel lint:* mocha"
+  }
+}
+```
+
+并行执行的时候，我们并不需要在后面增加 `& wait`，因为 npm-run-all 已经帮我们做了。
+
