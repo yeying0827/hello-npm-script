@@ -103,7 +103,7 @@ npm i stylelint stylelint-config-standard jsonlint markdown-cli mocha chai -D
 }
 ```
 
-如果在任何子命令中启动了长时间运行的进程，比如启用了mocha的`--watch`配置，可以使用`ctrl + c`来结束进程，如果没加的话，就没办法直接结束启动到后台的进程。
+如果在任何子命令中启动了长时间运行的进程，比如启用了mocha的`--watch`配置（方便在开发时立即看到测试结果），可以使用`ctrl + c`来结束进程，如果没加的话，就没办法直接结束启动到后台的进程。
 
 
 

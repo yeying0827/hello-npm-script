@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "lint:js": "eslint *.js",
+    "lint:js:fix": "npm run lint:js -- --fix",
     "lint:css": "stylelint *.less",
     "lint:json": "jsonlint --quiet *.json",
     "lint:markdown": "markdownlint --config .markdownlint.json *.md",
     "mocha": "mocha tests/",
-    "test": "npm-run-all --parallel lint:* mocha"
+    "mocha:watch": "npm run mocha -- --watch",
+    "test": "# 运行所有代码检查和单元测试 \n    npm-run-all --parallel lint:* mocha"
   },
   "keywords": [
     "npm",
