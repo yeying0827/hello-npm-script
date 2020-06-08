@@ -18,4 +18,12 @@ describe('hello-npm-script', function() {
   	  assert.equal(fns.add(2, 1), 3);
   	})
   });
+  describe('#minus', function() {
+    it('should return NaN when param invalid', function() {
+      assert.equal(fns.minus('s', 1), 'NaN');
+    })
+    it('should return sum when param are numbers', function() {
+      assert.equal(fns.minus(2, 1), 1);
+    })
+  });
 });
