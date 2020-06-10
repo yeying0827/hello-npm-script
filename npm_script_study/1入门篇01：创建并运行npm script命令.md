@@ -20,9 +20,9 @@ npm init -f  直接跳过参数问答环节，快速生成package.json
 初始化package.json时的字段默认值是可以自己配置的：
 
 ```shell
-npm config set init.author.email <>
-npm config set init.author.name <>
-npm config set init.author.url <>
+npm config set init.author.email xx
+npm config set init.author.name xx
+npm config set init.author.url xx
 npm config set init.license "MIT"
 npm config set init.version "0.1.0"
 ```
