@@ -29,7 +29,7 @@ DRY（Don't Repeat Yourself）是基本的编程原则，在npm script中使用�
   "scripts": {
     "cover": "nyc --reporter=html npm test",
     "cover:cleanup": "rm -rf coverage && rm -rf .nyc_output",
-    "cover:archive": "mkdir -p coverage_archive/$npm_package_version && cp -f coverage/* coverage_archive/$npm_package_version",
+    "cover:archive": "mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version",
     "postcover": "npm run cover:archive && npm run cover:cleanup && open-cli coverage_archive/$npm_package_version/index.html"
   }
 }
