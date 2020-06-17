@@ -8,6 +8,6 @@
 				"message": "Lowercase letters are easier to distinguish from numbers"
 			}
 		],
-		"unit-whitelist": ["em", "rem", "%", "s"]
+		"unit-whitelist": ["em", "rem", "%", "s", "px"]
 	}
 }
