@@ -7,6 +7,8 @@
   "description": "hello npm script",
   "main": "index.js",
   "scripts": {
+    "precommit": "npm run lint",
+    "prepush": "npm run test",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint *.js",
     "lint:js:fix": "npm run lint:js -- --fix",
@@ -42,7 +44,9 @@
     "cross-var": "^1.1.0",
     "eslint": "^7.0.0",
     "http-server": "^0.12.3",
+    "husky": "^4.2.5",
     "jsonlint": "^1.6.3",
+    "lint-staged": "^10.2.11",
     "livereload": "^0.9.1",
     "make-dir-cli": "^2.0.0",
     "markdownlint-cli": "^0.23.1",
