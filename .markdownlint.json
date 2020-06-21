@@ -1,0 +1,7 @@
+{
+    "default": true,
+    "line_length": false,
+    "first-line-h1": false,
+    "no-hard-tabs": false,
+    "whitespace": false
+}

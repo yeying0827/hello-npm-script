@@ -12,7 +12,7 @@
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:css": "stylelint *.less",
     "lint:json": "jsonlint --quiet *.json",
-    "lint:markdown": "markdownlint --config .markdownlint.json *.md",
+    "lint:markdown": "markdownlint --config .markdownlint.json *.md --ignore npm_script_study",
     "watch": "npm-run-all --parallel watch:*",
     "watch:test": "npm run test -- --watch",
     "watch:lint": "onchange -i \"**/**.js\" \"**/*.less\" -v -- npm run lint",
@@ -67,8 +67,15 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
+      "pre-commit": "lint-staged",
       "pre-push": "npm test"
     }
+  },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.less": "stylelint",
+    "*.css": "stylelint",
+    "*.json": "jsonlint --quiet",
+    "*.md": "markdownlint --config .markdownlint.json"
   }
 }
