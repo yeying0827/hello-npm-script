@@ -25,6 +25,12 @@
     "browser:client": "browser-sync start --server client/ --files \"**/*.css, **/*.html, **/*.js\"",
     "client:reload-server": "livereload client/",
     "client:static-server": "http-server client/",
+    "prebuild": "rm -rf dist && mkdir -p dist/{images,styles,scripts}",
+    "build": "scripty",
+    "build:images": "scripty",
+    "build:styles": "scripty",
+    "build:scripts": "scripty",
+    "build:hash": "scripty",
     "dummy": "echo $PATH $npm_package_name"
   },
   "keywords": [
@@ -40,9 +46,12 @@
     "cpr": "^3.0.1",
     "cross-env": "^7.0.2",
     "cross-var": "^1.1.0",
+    "cssmin": "^0.4.3",
     "eslint": "^7.0.0",
+    "hashmark": "^5.0.0",
     "http-server": "^0.12.3",
     "husky": "^4.2.5",
+    "imagemin-cli": "^6.0.0",
     "jsonlint": "^1.6.3",
     "lint-staged": "^10.2.11",
     "livereload": "^0.9.1",
@@ -53,11 +62,13 @@
     "nyc": "^15.1.0",
     "onchange": "^7.0.2",
     "opn-cli": "^5.0.0",
+    "replaceinfiles": "^1.1.4",
     "rimraf": "^3.0.2",
     "scripty": "^2.0.0",
     "shelljs": "^0.8.4",
     "stylelint": "^13.5.0",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-standard": "^20.0.0",
+    "uglify-es": "^3.3.9"
   },
   "nyc": {
     "exclude": [
@@ -76,6 +87,6 @@
     "*.less": "stylelint",
     "*.css": "stylelint",
     "*.json": "jsonlint --quiet",
-    "*.md": "markdownlint --config .markdownlint.json"
+    "*.md": "markdownlint --config .markdownlint.json --ignore npm_script_study"
   }
 }

@@ -1,4 +1,4 @@
-const { rm, cp, mkdir, exec, echo, env } = require('shelljs');
+const { rm, cp, mkdir, exec, env } = require('shelljs');
 const chalk = require('chalk');
 const npm_package_version = env['npm_package_version'];
 
