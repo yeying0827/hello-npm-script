@@ -31,6 +31,9 @@
     "build:styles": "scripty",
     "build:scripts": "scripty",
     "build:hash": "scripty",
+    "release:patch": "npm version patch && git push && git push --tags",
+    "release:minor": "npm version minor && git push && git push --tags",
+    "release:major": "npm version major && git push && git push --tags",
     "dummy": "echo $PATH $npm_package_name"
   },
   "keywords": [
