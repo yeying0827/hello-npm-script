@@ -110,7 +110,7 @@ client
    [less](http://lesscss.org/usage/)需要预编译样式代码，可使用less官方库自带的命令行工具lessc。（sass可使用[node-sass](https://github.com/sass/node-sass)）。样式预编译完成之后，使用[cssmin](https://www.npmjs.com/package/cssmin)来完成代码预压缩。安装依赖：
 
    ```shell
-   npm i cssmin -D
+   npm i less cssmin -D
    # npm install cssmin --save-dev
    # yarn add cssmin -D
    ```
@@ -199,6 +199,10 @@ client
    在scripts/build/hash.sh中添加内容：
 
    ```shell
+   # 给图片资源添加版本号，把映射关系保存在images.json文件里
+   # hashmark -c dist -r -l 8 '**/*.{png,jpg}' '{dir}/{name}.{hash}{ext}' --asset-map=images.json
+   # replaceinfiles -r dist/images.json -s 'dist/**/*.css' -d '{dir}/{base}'
+   
    # 给图片资源添加版本号，并且替换引用
    hashmark -c dist -r -l 8 '**/*.{png,jpg}' '{dir}/{name}.{hash}{ext}' | replaceinfiles -S -s 'dist/**/*.css' -d '{dir}/{base}'
    

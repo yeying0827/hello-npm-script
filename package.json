@@ -24,7 +24,7 @@
     "client": "npm-run-all --parallel client:*",
     "browser:client": "browser-sync start --server client/ --files \"**/*.css, **/*.html, **/*.js\"",
     "client:reload-server": "livereload client/",
-    "client:static-server": "http-server client/",
+    "client:static-server": "http-server -p 8080 client/",
     "prebuild": "rm -rf dist && mkdir -p dist/{images,styles,scripts}",
     "build": "scripty",
     "build:images": "scripty",

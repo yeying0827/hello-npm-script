@@ -81,7 +81,7 @@
 
 * 显示尽可能少的有用信息
 
-  结合其他工具调动npm script的时候比较有用，需要使用`--loglevel silent`，或者`--silent`，或者更简单的`-s`
+  结合其他工具调动npm script的时候比较有用，需要使用`--loglevel= silent`，或者`--silent`，或者更简单的`-s`
 
   （只有命令本身的输出）
 
@@ -89,7 +89,7 @@
 
 * 显示尽可能多的运行时状态
 
-  场景：排查脚本问题。需要使用`--loglevel verbose`，或者`--verbose`，或者更简单的`-d`
+  场景：排查脚本问题。需要使用`--loglevel=verbose`，或者`--verbose`，或者更简单的`-d`
 
   （详细打印出每个步骤的参数、返回值）`--verbose`比`-d`输出更详细
 

@@ -37,8 +37,8 @@ mocha本身支持`--watch`参数，即，在代码变化时自动重跑所有的
    ```json
    {
      "scripts": {
-       "watch": "npm-run-all -parallel watch:*",
-       "watch:lint": "onchange -i \"**/*.js\" \"**/*.less\" -v -- npm run lint"
+       "watch": "npm-run-all --parallel watch:*",
+       "watch:lint": "onchange -i \"**/*.js\" \"**/*.less\" -v -- npm run lint -s"
      }
    }
    ```

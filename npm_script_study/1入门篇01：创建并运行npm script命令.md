@@ -27,6 +27,8 @@ npm config set init.license "MIT"
 npm config set init.version "0.1.0"
 ```
 
+这些配置被写入.npmrc里面，`cat ~/.npmrc`可以查看
+
 
 
 用Git对源代码进行版本管理：git init
@@ -37,7 +39,7 @@ npm config set init.version "0.1.0"
 
 npm run test = npm test = npm t
 
-npm内置支持的命令：test, start
+npm内置支持的命令：test, start, stop, restart
 
 npm run 实际上是 npm run-script命令的简写
 
@@ -73,9 +75,9 @@ npm在执行指定script之前，会把node_modules/.bin加到环境变量$PATH�
 
 ##### ~创建自定义npm sript：
 
-在项目中添加实用的eslint脚本，步骤：
+在项目中添加实用的eslint脚本（代码风格检查工具），步骤：
 
-* 1.准备被检查的代码 index.js
+* 1.准备被检查的代码 `touch index.js`
 
 * 2.添加eslint为devDependencies：
 
@@ -91,7 +93,9 @@ npm在执行指定script之前，会把node_modules/.bin加到环境变量$PATH�
   ./node_modules/.bin/eslint --lint
   ```
 
-  生成.eslintrc.js配置文件
+  生成.eslintrc.js配置文件。
+
+  可直接尝试运行`./node_modules/.bin/eslint index.js `
 
 * 4.添加eslint命令
 

@@ -66,7 +66,7 @@ npm i nyc opn-cli -D
 
 * 在scripts中新增3条命令：
   * precover 收集覆盖率之前把之前的覆盖率报告目录清理掉；
-  * cover 直接调用nyc，让其生成html格式的覆盖率报告；
+  * cover 直接调用nyc， 收集npm test命令的覆盖率，让其生成html格式的覆盖率报告；
   * postcover 清理掉临时文件，并在浏览器中预览覆盖率报告。
 
 ```json

@@ -12,6 +12,8 @@
 
    chalk: 用于给输出加点颜色
 
+   shelljs： 提供了shell下可执行的常见的命令
+
 2. 创建node.js脚本
 
    ```shell
@@ -20,7 +22,7 @@
 
 3. 用node.js实现和shell脚本同等功能
 
-   shelljs提供了各种常见命令的跨平台支持，如cp、mkdir、rm、cd等命令，理论上可以在node.js脚本中使用任何[npmjs.com](https://www.npmjs.com/)上能找到的包。
+   shelljs提供了各种常见命令的跨平台支持，如cp、mkdir、rm、cd等命令，理论上可以在node.js脚本中使用任何[npmjs.com](https://www.npmjs.com/)上能找到的包。 
 
    ```js
    const { rm, cp, mkdir, exec, env } = require('shelljs');
@@ -36,7 +38,8 @@
    exec('nyc --reporter=html npm test');
    
    console.log(chalk.green('3. archive coverage report by version...'));
-   mkdir('-p', `coverage_archive/${npm_package_version}`)
+    // mkdir('-p', `coverage_archive/${npm_package_version}`)
+   mkdir('-p', `coverage_archive/$npm_package_version`)
    cp('-r', 'coverafe/*', `coverage_archive/${npm_package_version}`);
    
    console.log(chalk.green('4. open coverage report for preview...'));
